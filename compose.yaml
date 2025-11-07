@@ -1,0 +1,17 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /repo
+    volumes:
+      - ./repo:/repo
+      - uv_cache:/root/.cache/uv           # 取得キャッシュで高速化
+    tty: true
+    command: [ "bash", "-lc", "cd /repo && uv sync && sleep infinity" ]
+
+#    ports:
+#      - "8888:8888"                       # Jupyter Notebook用ポート
+
+volumes:
+  uv_cache:
