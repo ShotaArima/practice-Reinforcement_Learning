@@ -1,0 +1,28 @@
+{
+  "name": "RL-book (uv + PyCharm)",
+  "dockerComposeFile": ["../compose.yaml"],
+  "service": "app",
+  "workspaceFolder": "/repo",
+  "shutdownAction": "stopCompose",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "charliermarsh.ruff",
+        "ms-python.mypy-type-checker"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/repo/.venv/bin/python",
+        "[python]": {
+          "editor.formatOnSave": true,
+          "editor.defaultFormatter": "charliermarsh.ruff",
+          "editor.codeActionsOnSave": {
+            "source.organizeImports.ruff": "explicit",
+            "source.fixAll.ruff": "explicit"
+          },
+          "editor.tabSize": 4
+        }
+      }
+    }
+  }
+}
